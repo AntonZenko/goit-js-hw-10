@@ -26,6 +26,9 @@ function onHandleInput(e) {
           }
         );
       }
+      if (country.length < 10) {
+        listRef.innerHTML = makeCountriesList(country);
+      }
       if (country.length === 1) {
         cardRef.innerHTML = makeCountryCard(country[0]);
         Notify.success('Search completed', {
@@ -34,7 +37,6 @@ function onHandleInput(e) {
         listRef.innerHTML = '';
         return;
       }
-      listRef.innerHTML = makeCountriesList(country);
     })
     .catch(error => Notify.failure('Oops, there is no country with that name'));
 }

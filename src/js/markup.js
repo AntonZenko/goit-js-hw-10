@@ -1,15 +1,21 @@
-export function makeCountryCard(country) {
-  const languages = country.languages
+export function makeCountryCard({
+  name,
+  capital,
+  population,
+  languages,
+  flags,
+}) {
+  const lang = languages
     .map(language => {
       return language.name;
     })
     .join(', ');
 
   return `<h2 class="country__title">
-  <img src="${country.flags.svg}" alt="${country.name}" width = 200px class="country__flag"><p>${country.name}</p></h2>
-          <p><b>Capital:</b> ${country.capital}</p>
-          <p><b>Population:</b> ${country.population}</p>
-          <p><b>Languages:</b> ${languages}</p>`;
+  <img src="${flags.svg}" alt="${name}" width = 200px class="country__flag"><p>${name}</p></h2>
+          <p><b>Capital:</b> ${capital}</p>
+          <p><b>Population:</b> ${population}</p>
+          <p><b>Languages:</b> ${lang}</p>`;
 }
 
 export function makeCountriesList(countries) {
